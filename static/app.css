@@ -1,0 +1,95 @@
+ body {
+    background-color: darkgray;
+ }
+ header {
+    background-color: rgba(74, 203, 232, 0.435);
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0.8rem 1.7rem;
+    border-radius: .4rem;
+ }
+
+ .container {
+    width: 70%;
+    min-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs {
+    background-color:  rgba(205, 205, 205, 0.362);;
+    display: flex;
+    flex-direction: column;
+    border: .1rem solid rgba(0, 0, 0, 0.239);
+    padding: 1.5rem 3rem;
+    margin-left: 0%;
+
+    border-radius: .3rem;
+  }
+
+  h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2.2rem;
+  }
+
+  input {
+    border-radius: 0.2rem;
+    border: strong black;
+  }
+
+  .user-search {
+    font-size: 1.2rem;
+  }
+
+  .add-job {
+    font-size: 1.2rem;
+  }
+  
+  .kanban-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: sans-serif;
+  }
+  
+  .kanban-heading-text {
+    font-size: 1.8rem;
+    background-color: tomato;
+    padding: 0.8rem 1.7rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+  }
+
+  .kanban-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: sans-serif;
+  }
+  
+  .kanban-block {
+    padding: 0.6rem;
+    width: 30.5%;
+    min-width: 14rem;
+    min-height: 4.5rem;
+    border-radius: 0.3rem;
+  }
+  
+  #company {
+    background-color: #fec6d1;
+  }
+  
+  #applied {
+    background-color: #ffaf00;
+  }
+  
+  #interview {
+    background-color: #018b01;
+  }
+
+  #offer {
+    background-color: aqua;
+  }
