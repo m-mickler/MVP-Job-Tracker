@@ -83,6 +83,25 @@ $userForm2.submit((event) => {
         body: JSON.stringify(newJob)
         }
     ).then((response) => {
+        $.ajax({
+            type: "GET",
+            url: `/api/tracker/${id}`,
+            contentType: "application/json",
+            success: res => {
+                $Companys.empty(); $Applieds.empty(); $Interviews.empty(); $Offers.empty();
+                for(let i = 0; i < res.length; i++){
+                    const newCompany = $(`<li>${res[i].company}</li>`);
+                    newCompany.appendTo($Companys);
+                    const newApplied = $(`<li>${res[i].applied}</li>`);
+                    newApplied.appendTo($Applieds);
+                    const newInterview = $(`<li>${res[i].interview}</li>`);
+                    newInterview.appendTo($Interviews);
+                    const newOffer = $(`<li>${res[i].tc_offer}</li>`);
+                    newOffer.appendTo($Offers);
+                };
+                console.log(res)
+            }
+        })
         response.json()
     })
     $userForm2[0].reset();
@@ -148,25 +167,39 @@ $userForm3.submit((event) => {
     let company = $company3.val();
     deletedId = Number(deletedId);
     console.log(deletedId);
-    $.ajax({
-        type: "DELETE",
-        url: `/api/tracker/${deletedId}/${company}`,
-        contentType: "application/json",
-        success: res => {
-            $.ajax({
-                type: "GET",
-                url: `/api/tracker/${deletedId}`,
-                contentType: "application/json",
-                success: res => {
-                    console.log(res)
-                }
-            })
+    fetch( 
+        `/api/tracker/${deletedId}/${company}`,
+        { 
+        method: "DELETE",
+        headers: {
+        "Content-Type": "application/json"
         }
+        }
+    ).then((response) => {
+        $.ajax({
+            type: "GET",
+            url: `/api/tracker/${deletedId}`,
+            contentType: "application/json",
+            success: res => {
+                $Companys.empty(); $Applieds.empty(); $Interviews.empty(); $Offers.empty();
+                for(let i = 0; i < res.length; i++){
+                    const newCompany = $(`<li>${res[i].company}</li>`);
+                    newCompany.appendTo($Companys);
+                    const newApplied = $(`<li>${res[i].applied}</li>`);
+                    newApplied.appendTo($Applieds);
+                    const newInterview = $(`<li>${res[i].interview}</li>`);
+                    newInterview.appendTo($Interviews);
+                    const newOffer = $(`<li>${res[i].tc_offer}</li>`);
+                    newOffer.appendTo($Offers);
+                };
+                console.log(res)
+            }
+        })
     })
     // this function to clear data fields upon error needs work
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        alert("Does not exist")
-    });
+    // .fail(function (jqXHR, textStatus, errorThrown) {
+    //     alert("Does not exist")
+    // });
     $User[0].reset();
 });
 
