@@ -71,10 +71,11 @@ app.delete("/api/users/:id", (req, res, next) => {
     }).catch(next)
 });
 
-app.delete("/api/tracker/:id", (req, res, next) => {
+app.delete("/api/tracker/:id/:company", (req, res, next) => {
     const id = req.params.id;
     const company = req.params.company;
-    pool.query("DELETE * FROM tracker WHERE (id = $1 and company = $2) RETURNING *;", [id, company]).then((data) => {
+    console.log(id, company);
+    pool.query("DELETE FROM tracker WHERE (id = $1 and company = $2) RETURNING *;", [id, company]).then((data) => {
         console.log(data.rows);
         if(data.rows.length === 0) {
             res.sendStatus(404);

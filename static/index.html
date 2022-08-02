@@ -5,6 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Kanban Job Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='app.css'>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script defer src='app.js'></script>
@@ -23,34 +26,34 @@
                     <label for="username">Username:</label>
                     <input type="text" id="first_name" placeholder="first name">
                     <input type="text" id="last_name" placeholder="last name">
-                    <input type="text" name="entered-id" id="id1" placeholder="id">
+                    <input type="text" name="entered-id" id="id1" placeholder="id" required>
                     <button>Search</button>
                 </form>
             </div>
             <div class="new-user">
                 <form id="user-submit">
                     <label for="new-user">New User:</label>
-                    <input type="text" id="new_first_name" placeholder="first name">
-                    <input type="text" id="new_last_name" placeholder="last name">
+                    <input type="text" id="new_first_name" placeholder="first name" required>
+                    <input type="text" id="new_last_name" placeholder="last name" required>
                     <button>Create</button>
                 </form>
             </div>
             <div class="add-job">
                 <form id="user-submit2">
                     <label for="Company">New Job:</label>
-                    <input type="text" id="Company2" placeholder="Company Name">
-                    <input type="text" id="Applied2" placeholder="Application status">
-                    <input type="text" id="Interview2" placeholder="Interview status">
-                    <input type="text" id="Offer2" placeholder="Total Compensation Offer">
-                    <input type="text" id="ID2" placeholder="ID">
+                    <input type="text" id="Company2" placeholder="Company Name" required>
+                    <input type="text" id="Applied2" placeholder="Application status" required>
+                    <input type="text" id="Interview2" placeholder="Interview status" required>
+                    <input type="text" id="Offer2" placeholder="Total Compensation Offer" required>
+                    <input type="text" id="ID2" placeholder="ID" required>
                     <button id="Add">Add New Job</button>
                 </form>
             </div>
             <div class="update-job">
                 <form id="user-submit4">
                     <label for="Company">Update Job:</label>
-                    <input type="text" id="Company4" placeholder="Company*">
-                    <input type="text" id="ID4" placeholder="Your ID*">
+                    <input type="text" id="Company4" placeholder="Company*" required>
+                    <input type="text" id="ID4" placeholder="Your ID*" required>
                     <input type="text" id="Applied4" placeholder="Application status">
                     <input type="text" id="Interview4" placeholder="Interview status">
                     <input type="text" id="Offer4" placeholder="Total Compensation Offer">
@@ -60,8 +63,8 @@
             <div class="delete-job">
                 <form id="user-submit3">
                     <label for="Company">Remove Job:</label>
-                    <input type="text" id="Company3" placeholder="Company To Remove">
-                    <input type="text" id="ID3" placeholder="Your ID">
+                    <input type="text" id="Company3" placeholder="Company To Remove" required>
+                    <input type="text" id="ID3" placeholder="Your ID" required>
                     <button id="Remove" name="removed">Remove Job</button>
                 </form>
             </div>

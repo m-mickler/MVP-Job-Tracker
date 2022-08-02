@@ -16,13 +16,14 @@ let $Companys = $("#company1");
 let $Applieds = $("#applied1");
 let $Interviews = $("#interview1");
 let $Offers = $("#offer1");
+let $company3 = $("#Company3");
 let $company4 = $("#Company4");
 let $applied4 = $("#Applied4");
 let $interview4 = $("#Interview4");
 let $offer4 = $("#Offer4");
 let $heading = $(".kanban-heading-text");
 let $id1 = $('input[name="entered-id"]');
-let $id2 = $('#Remove');
+let $id3 = $('#ID3');
 let $id4 = $('#ID4');
 
 //home button reloads the page
@@ -141,25 +142,33 @@ $User.submit((event) => {
 });
 
 // NOT DONE Will delete a job listing
-// $userForm3.submit((event) => { 
-//     event.preventDefault();
-//     let deleteId = $id2.val();
-//     console.log(deleteId);
-//     $.ajax({
-//         type: "DELETE",
-//         url: `/api/tracker/${deleteId}`,
-//         contentType: "application/json",
-//         dataType: 'text',
-//         success: res => {
-//             console.log(res)
-//         }
-//     })
-//     // this function to clear data fields upon error needs work
-//     .fail(function (jqXHR, textStatus, errorThrown) {
-//         console.log('failed')
-//     });
-//     $User[0].reset();
-// });
+$userForm3.submit((event) => { 
+    event.preventDefault();
+    let deletedId = $id3.val();
+    let company = $company3.val();
+    deletedId = Number(deletedId);
+    console.log(deletedId);
+    $.ajax({
+        type: "DELETE",
+        url: `/api/tracker/${deletedId}/${company}`,
+        contentType: "application/json",
+        success: res => {
+            $.ajax({
+                type: "GET",
+                url: `/api/tracker/${deletedId}`,
+                contentType: "application/json",
+                success: res => {
+                    console.log(res)
+                }
+            })
+        }
+    })
+    // this function to clear data fields upon error needs work
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        alert("Does not exist")
+    });
+    $User[0].reset();
+});
 
 //updates job by id and company name
 $userForm4.submit((event) => {
