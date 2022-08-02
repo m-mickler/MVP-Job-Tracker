@@ -196,10 +196,6 @@ $userForm3.submit((event) => {
             }
         })
     })
-    // this function to clear data fields upon error needs work
-    // .fail(function (jqXHR, textStatus, errorThrown) {
-    //     alert("Does not exist")
-    // });
     $User[0].reset();
 });
 
