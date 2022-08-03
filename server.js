@@ -25,18 +25,18 @@ const errorHandler1 = (req, res, next) => {
     res.sendStatus(404);
     next();
 };
-
+//used to display the newly created user's ID
 app.get("/api/users/new", (req, res, next) => {
     pool.query("SELECT * FROM users ORDER BY id DESC LIMIT 1;").then((data) => {
         res.send(data.rows);
     }).catch(next)
 });
 
-app.get("/api/tracker", (req, res, next) => {
-    pool.query("SELECT * FROM tracker;").then((data) => {
-        res.send(data.rows);
-    }).catch(next);
-})
+// app.get("/api/tracker", (req, res, next) => {
+//     pool.query("SELECT * FROM tracker;").then((data) => {
+//         res.send(data.rows);
+//     }).catch(next);
+// })
 
 app.get("/api/users/:id", (req, res, next) => {
     const id = req.params.id;

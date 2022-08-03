@@ -38,7 +38,7 @@
   }
 
   .inputs {
-    background-color:  rgba(205, 205, 205, 0.362);;
+    background-color:  rgba(7, 7, 7, 0.278);
     display: table;
     justify-content: center;
     border: .1rem solid rgba(0, 0, 0, 0.239);
@@ -51,11 +51,12 @@
     flex-direction: row;
     justify-content: center;
     font-size: 2.2rem;
+    color: whitesmoke;
   }
 
   button {
     margin-top: 0.5rem;
-    background-color: rgb(27, 1, 113);
+    background-color: rgba(20, 2, 82, 0.658);
     color: antiquewhite;
     min-width: 4rem;
     min-height: 2rem;
@@ -74,6 +75,7 @@
 
   label {
     font-size: 1.2rem;
+    color: whitesmoke;
   }
   
   .kanban-heading {
@@ -84,7 +86,7 @@
   
   .kanban-heading-text {
     font-size: 1.8rem;
-    background-color: tomato;
+    background-color: rgba(255, 99, 71, 0.93);
     padding: 0.8rem 1.7rem;
     border-radius: 0.5rem;
     margin: 1rem;
@@ -101,24 +103,24 @@
     width: 30.5%;
     min-width: 14rem;
     min-height: 4.5rem;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     margin-right: 1rem;
   }
   
   #company {
-    background-color: #fec6d1;
+    background-color: #fec6d1ef;
   }
   
   #applied {
-    background-color: #ffaf00;
+    background-color: #ffae00ee;
   }
   
   #interview {
-    background-color: #018b01;
+    background-color: #018b01ec;
   }
 
   #offer {
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.924);
   }
 
   strong {
