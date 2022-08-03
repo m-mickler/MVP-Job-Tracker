@@ -247,6 +247,7 @@ $userForm4.submit((event) => {
     $userForm2[0].reset();
 });
 
+//finds and displays a users ID from their name
 $search.submit((event) => { 
     event.preventDefault();
     let firstname = $firstname.val();

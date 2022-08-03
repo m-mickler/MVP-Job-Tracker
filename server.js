@@ -1,6 +1,7 @@
 import pg from "pg";
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const errorHandler1 = (req, res, next) => {
     res.sendStatus(404);
     next();
 };
+
 //used to display the newly created user's ID
 app.get("/api/users/new", (req, res, next) => {
     pool.query("SELECT * FROM users ORDER BY id DESC LIMIT 1;").then((data) => {
@@ -32,12 +34,7 @@ app.get("/api/users/new", (req, res, next) => {
     }).catch(next)
 });
 
-// app.get("/api/tracker", (req, res, next) => {
-//     pool.query("SELECT * FROM tracker;").then((data) => {
-//         res.send(data.rows);
-//     }).catch(next);
-// })
-
+//used to get information about the current user and display about the kanban board
 app.get("/api/users/:id", (req, res, next) => {
     const id = req.params.id;
     pool.query("SELECT * FROM users WHERE id = $1;", [id]).then((data) =>{
@@ -49,6 +46,7 @@ app.get("/api/users/:id", (req, res, next) => {
     }).catch(next);
 });
 
+//used to find a users ID by their name if they forgot what their id is
 app.get("/api/users/:first_name/:last_name", (req, res, next) => {
     const firstname = req.params.first_name;
     const lastname = req.params.last_name;
@@ -61,6 +59,7 @@ app.get("/api/users/:first_name/:last_name", (req, res, next) => {
     }).catch(next);
 });
 
+//gets all info from a user by their id
 app.get("/api/tracker/:id", (req, res, next) => {
     const id = req.params.id;
     pool.query("SELECT * FROM tracker WHERE id = $1;", [id]).then((data) =>{
@@ -72,17 +71,7 @@ app.get("/api/tracker/:id", (req, res, next) => {
     }).catch(next);
 });
 
-app.delete("/api/users/:id", (req, res, next) => {
-    const id = req.params.id;
-    pool.query("DELETE FROM users WHERE id = $1 RETURNING *;", [id]).then((data) => {
-        if(data.rows.length === 0) {
-            res.sendStatus(404);
-        } else {
-            res.status(204).send(data.rows[0]);
-        }
-    }).catch(next)
-});
-
+// used to delete a company for a specific user
 app.delete("/api/tracker/:id/:company", (req, res, next) => {
     const id = req.params.id;
     const company = req.params.company;
@@ -97,6 +86,7 @@ app.delete("/api/tracker/:id/:company", (req, res, next) => {
     }).catch(next)
 });
 
+// used to create a new user
 app.post("/api/users", (req, res, next) => {
     const newUser = req.body;
     if(newUser.first_name && newUser.last_name){
@@ -111,6 +101,7 @@ app.post("/api/users", (req, res, next) => {
     }
 });
 
+//used to create a new job
 app.post("/api/tracker", (req, res, next) => {
     const newJob = req.body;
     if(newJob.company && newJob.applied && newJob.interview && newJob.TC_offer && newJob.id){
@@ -124,6 +115,7 @@ app.post("/api/tracker", (req, res, next) => {
     }
 });
 
+//used to update any status of a job for a specific user
 app.patch("/api/tracker/:id/:company", (req, res, next) => {
     const company = req.params.company;
     const id = req.params.id;
@@ -146,6 +138,26 @@ app.patch("/api/tracker/:id/:company", (req, res, next) => {
         res.sendStatus(400);
         }                                  
 });
+
+//********* BELOW NOT USED ***********
+// app.get("/api/tracker", (req, res, next) => {
+//     pool.query("SELECT * FROM tracker;").then((data) => {
+//         res.send(data.rows);
+//     }).catch(next);
+// })
+
+//********* BELOW NOT USED ***********
+// app.delete("/api/users/:id", (req, res, next) => {
+//     const id = req.params.id;
+//     pool.query("DELETE FROM users WHERE id = $1 RETURNING *;", [id]).then((data) => {
+//         if(data.rows.length === 0) {
+//             res.sendStatus(404);
+//         } else {
+//             res.status(204).send(data.rows[0]);
+//         }
+//     }).catch(next)
+// });
+
 
 app.use(errorHandler1);
 app.use(function (err, req, res, next) {
