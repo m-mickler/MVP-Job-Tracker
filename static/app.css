@@ -10,6 +10,7 @@
     flex-direction: row-reverse;
     padding: 0.8rem 1.7rem;
     border-radius: .4rem;
+    justify-content: space-between;
  }
 
  #home {
