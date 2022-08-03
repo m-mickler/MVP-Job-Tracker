@@ -1,11 +1,13 @@
  body {
-    background-color: rgb(129, 128, 128);
+    background-image: url("/images/mountains.jpg");
+    background-blend-mode: darken;
+    background-size: contain;
     font-family: 'Source Serif Pro', serif;
     font-weight: 900;
  }
 
  header {
-    background-color: rgba(74, 203, 232, 0.435);
+    background-color: rgba(7, 7, 7, 0.281);
     display: flex;
     flex-direction: row-reverse;
     padding: 0.8rem 1.7rem;
@@ -18,13 +20,13 @@
  }
 
  .footer {
-    background-color: rgba(7, 7, 7, 0.14);
+    background-color: rgba(7, 7, 7, 0.281);
     display: flex;
     flex-direction: row;
     padding: 0.4rem 1rem;
     border-radius: .4rem;
-    margin-top: 20%;
-    color:rgb(241, 120, 229);
+    margin-top: 15%;
+    color:rgb(253, 252, 253);
  }
 
  .container {
@@ -39,13 +41,12 @@
     background-color:  rgba(205, 205, 205, 0.362);;
     display: flex;
     border: .1rem solid rgba(0, 0, 0, 0.239);
-    border-radius: .3rem;
+    border-radius: .5rem;
     margin: 1rem;
     padding: 1rem;
     min-height: 15rem;
     max-width: 51.3rem;
     min-width: 51.3rem;
-
   }
 
   h1 {
@@ -66,7 +67,8 @@
   }
 
   input {
-    border-radius: 0.2rem;
+    background-color: antiquewhite;
+    border-radius: 0.3rem;
     border: strong black;
     margin-top: 0.5rem;
     margin-right: 0.9rem;
@@ -95,7 +97,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* font-family: sans-serif; */
   }
   
   .kanban-block {
@@ -121,4 +122,8 @@
 
   #offer {
     background-color: aqua;
+  }
+
+  strong {
+    font-size: larger;
   }
