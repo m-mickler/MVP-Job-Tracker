@@ -5,6 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Kanban Job Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
@@ -14,8 +15,13 @@
 </head>
 <body>
     <div>
-        <header>
-            <button id="home">Home</button>
+        <header class="header">
+            <button id="home" class="btn"><i class="fa fa-home"></i></button>
+            <form id="id-search">
+                <input type="text" id="first_name" placeholder="first name">
+                <input type="text" id="last_name" placeholder="last name">
+                <button id="id-finder"><i class="fa fa-search"></i></button>
+            </form>
         </header>
     </div>
     <div class="container">
@@ -23,9 +29,7 @@
         <div class="inputs">
             <div class="user-search">
                 <form id="User1">
-                    <label for="username">Username:</label>
-                    <input type="text" id="first_name" placeholder="first name">
-                    <input type="text" id="last_name" placeholder="last name">
+                    <label for="username">User Select:</label>
                     <input type="text" name="entered-id" id="id1" placeholder="id" required>
                     <button>Search</button>
                 </form>
@@ -44,7 +48,7 @@
                     <input type="text" id="Company2" placeholder="Company Name" required>
                     <input type="text" id="Applied2" placeholder="Application status" required>
                     <input type="text" id="Interview2" placeholder="Interview status" required>
-                    <input type="text" id="Offer2" placeholder="Total Compensation Offer" required>
+                    <input type="text" id="Offer2" placeholder="Salary" required>
                     <input type="text" id="ID2" placeholder="ID" required>
                     <button id="Add">Add New Job</button>
                 </form>
@@ -56,7 +60,7 @@
                     <input type="text" id="ID4" placeholder="Your ID*" required>
                     <input type="text" id="Applied4" placeholder="Application status">
                     <input type="text" id="Interview4" placeholder="Interview status">
-                    <input type="text" id="Offer4" placeholder="Total Compensation Offer">
+                    <input type="text" id="Offer4" placeholder="Salary">
                     <button id="Update" name="Update">Update Job</button>
                 </form>
             </div>
@@ -92,4 +96,7 @@
         </div>
     </div>
 </body>
+<footer class="footer">
+    <h5>@mighty-wildwood-creations</h5>
+</footer>
 </html>

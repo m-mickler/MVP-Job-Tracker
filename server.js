@@ -49,6 +49,18 @@ app.get("/api/users/:id", (req, res, next) => {
     }).catch(next);
 });
 
+app.get("/api/users/:first_name/:last_name", (req, res, next) => {
+    const firstname = req.params.first_name;
+    const lastname = req.params.last_name;
+    pool.query("SELECT id FROM users WHERE (first_name = $1 and last_name = $2);", [firstname, lastname]).then((data) =>{
+        if(data.rows[0]){
+            res.send(data.rows[0]);
+        } else {
+            res.sendStatus(404);
+        }   
+    }).catch(next);
+});
+
 app.get("/api/tracker/:id", (req, res, next) => {
     const id = req.params.id;
     pool.query("SELECT * FROM tracker WHERE id = $1;", [id]).then((data) =>{
