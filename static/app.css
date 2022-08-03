@@ -1,7 +1,7 @@
  body {
     background-image: url("/images/mountains.jpg");
-    background-blend-mode: darken;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Source Serif Pro', serif;
     font-weight: 900;
  }
@@ -39,14 +39,11 @@
 
   .inputs {
     background-color:  rgba(205, 205, 205, 0.362);;
-    display: flex;
+    display: table;
+    justify-content: center;
     border: .1rem solid rgba(0, 0, 0, 0.239);
     border-radius: .5rem;
-    margin: 1rem;
     padding: 1rem;
-    min-height: 15rem;
-    max-width: 51.3rem;
-    min-width: 51.3rem;
   }
 
   h1 {
